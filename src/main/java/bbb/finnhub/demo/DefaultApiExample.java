@@ -14,7 +14,8 @@ public class DefaultApiExample {
 
     public static void main(String[] args) {
         Vertx vertx = Vertx.vertx();
-        Configuration.setupDefaultApiClient(vertx, new JsonObject());
+        JsonObject config = new JsonObject();
+        Configuration.setupDefaultApiClient(vertx, config);
         ApiClient client = Configuration.getDefaultApiClient();
         client.setBasePath("https://finnhub.io/api/v1");
         ApiKeyAuth auth = (ApiKeyAuth) client.getAuthentication("api_key");
